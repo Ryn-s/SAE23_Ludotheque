@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Jeux</h2>
+  <p>
+    <a class="btn" href="{% url 'gestion_jeux:create' %}">➕ Nouveau jeu</a>
+    <a class="btn" href="{% url 'gestion_jeux:import' %}">📂 Import CSV</a>
+  </p>
+  <ul>
+    {% for jeu in object_list %}
+      <li>
+        <a href="{% url 'gestion_jeux:detail' jeu.pk %}">{{ jeu.titre }}</a>
+        ({{ jeu.annee_sortie }}, {{ jeu.editeur }})
+      </li>
+    {% empty %}
+      <li>Aucun jeu pour l’instant.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

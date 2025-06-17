@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Supprimer le joueur</h2>
+  <p>Êtes-vous sûr·e de vouloir supprimer « {{ object.prenom }} {{ object.nom }} » ?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Oui, supprimer</button>
+    <a href="{% url 'gestion_joueurs:detail' object.pk %}">Non, revenir</a>
+  </form>
+{% endblock %}

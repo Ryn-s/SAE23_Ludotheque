@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Fiche de {{ object.prenom }} {{ object.nom }}</h2>
+  <p><strong>Email :</strong> {{ object.email }}</p>
+  <p><strong>Type :</strong> {{ object.get_type_display }}</p>
+
+  <h3>Actions</h3>
+  <p>
+    <a class="btn" href="{% url 'gestion_joueurs:update' object.pk %}">✏️ Modifier</a>
+    <a class="btn btn-danger" href="{% url 'gestion_joueurs:delete' object.pk %}">🗑️ Supprimer</a>
+  </p>
+  <p><a href="{% url 'gestion_joueurs:list' %}">← Retour à la liste</a></p>
+{% endblock %}

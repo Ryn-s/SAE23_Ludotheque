@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Détail de la catégorie</h2>
+  <p><strong>Nom :</strong> {{ object.nom }}</p>
+  <p><strong>Description :</strong> {{ object.descriptif }}</p>
+  <p>
+    <a class="btn" href="{% url 'gestion_categories:update' object.pk %}">✏️ Modifier</a>
+    <a class="btn btn-danger" href="{% url 'gestion_categories:delete' object.pk %}">🗑️ Supprimer</a>
+  </p>
+  <p><a href="{% url 'gestion_categories:list' %}">← Retour à la liste</a></p>
+{% endblock %}

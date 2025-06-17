@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>{% if object %}Modifier{% else %}Créer{% endif %} une catégorie</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">Enregistrer</button>
+    <a href="{% url 'gestion_categories:list' %}">← Annuler</a>
+  </form>
+{% endblock %}

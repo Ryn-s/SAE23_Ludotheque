@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Joueurs</h2>
+  <p><a class="btn" href="{% url 'gestion_joueurs:create' %}">➕ Nouvel joueur</a></p>
+  <ul>
+    {% for joueur in object_list %}
+      <li>
+        <a href="{% url 'gestion_joueurs:detail' joueur.pk %}">
+          {{ joueur.prenom }} {{ joueur.nom }}
+        </a>
+      </li>
+    {% empty %}
+      <li>Aucun joueur pour l’instant.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

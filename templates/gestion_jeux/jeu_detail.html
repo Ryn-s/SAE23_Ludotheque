@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>{{ object.titre }}</h2>
+  <p><strong>Année :</strong> {{ object.annee_sortie }}</p>
+  <p><strong>Éditeur :</strong> {{ object.editeur }}</p>
+  <p><strong>Catégorie :</strong> {{ object.categorie.nom }}</p>
+  <p><strong>Auteur :</strong> {{ object.auteur.prenom }} {{ object.auteur.nom }}</p>
+  {% if object.photo_boite %}
+    <p><img src="{{ object.photo_boite.url }}" alt="Jaquette de {{ object.titre }}" style="max-width:200px;"></p>
+  {% endif %}
+
+  {% if moy_pro or moy_part %}
+    <h3>Moyennes des notes</h3>
+    <p>Professionnels : {{ moy_pro|default:"0.0"|floatformat:1 }}/5</p>
+    <p>Particuliers   : {{ moy_part|default:"0.0"|floatformat:1 }}/5</p>
+  {% endif %}
+  {% if best %}
+    <h4>Meilleur commentaire</h4>
+    <blockquote>
+      « {{ best.commentaire }} » — {{ best.note }}/5 par {{ best.joueur.prenom }}
+    </blockquote>
+  {% endif %}
+  {% if worst %}
+    <h4>Pire commentaire</h4>
+    <blockquote>
+      « {{ worst.commentaire }} » — {{ worst.note }}/5 par {{ worst.joueur.prenom }}
+    </blockquote>
+  {% endif %}
+
+  <p>
+    <a class="btn" href="{% url 'gestion_jeux:update' object.pk %}">✏️ Modifier</a>
+    <a class="btn btn-danger" href="{% url 'gestion_jeux:delete' object.pk %}">🗑️ Supprimer</a>
+  </p>
+  <p><a href="{% url 'gestion_jeux:list' %}">← Retour à la liste</a></p>
+{% endblock %}
