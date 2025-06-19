@@ -8,5 +8,5 @@ urlpatterns = [
     path('<int:pk>/',   views.JeuDetailView.as_view(), name='detail'),
     path('<int:pk>/edit/',   views.JeuUpdateView.as_view(), name='update'),
     path('<int:pk>/delete/', views.JeuDeleteView.as_view(), name='delete'),
-    path('import/',     views.JeuImportView.as_view(), name='import'),  # si tu as ajouté l'import CSV
+    path('import/',     views.JeuImportView.as_view(), name='import'),  
 ]
