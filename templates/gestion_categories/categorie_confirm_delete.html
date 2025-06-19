@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Supprimer la catégorie</h2>
+  <p>Êtes-vous sûr·e de vouloir supprimer « {{ object.nom }} » ? Cette action est irréversible.</p>
+  <form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Oui, supprimer</button>
+    <a href="{% url 'gestion_categories:detail' object.pk %}">Non, revenir</a>
+  </form>
+{% endblock %}

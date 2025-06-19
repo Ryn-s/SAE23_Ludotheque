@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Commentaires</h2>
+  <p><a class="btn" href="{% url 'gestion_commentaires:create' %}">➕ Nouveau commentaire</a></p>
+  <ul>
+    {% for com in object_list %}
+      <li>
+        <a href="{% url 'gestion_commentaires:detail' com.pk %}">
+          {{ com.jeu.titre }} – {{ com.note }}/5 par {{ com.joueur.prenom }}
+        </a>
+      </li>
+    {% empty %}
+      <li>Aucun commentaire pour l’instant.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

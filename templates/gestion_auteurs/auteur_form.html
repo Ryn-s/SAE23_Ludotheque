@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>{% if object %}Modifier{% else %}Créer{% endif %} un auteur</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">Enregistrer</button>
+    <a href="{% url 'gestion_auteurs:list' %}">← Annuler</a>
+  </form>
+{% endblock %}

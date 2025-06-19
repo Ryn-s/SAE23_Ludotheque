@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Importer des jeux depuis un CSV</h2>
+  <p>Format : <code>titre,annee_sortie,editeur,categorie_nom,auteur_prenom,auteur_nom</code></p>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">Importer</button>
+    <a href="{% url 'gestion_jeux:list' %}">← Retour à la liste</a>
+  </form>
+  {% if messages %}
+    <ul>
+      {% for msg in messages %}
+        <li>{{ msg }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

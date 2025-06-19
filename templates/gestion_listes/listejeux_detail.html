@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Détail de la liste</h2>
+  <p><strong>Joueur :</strong> {{ object.joueur.prenom }} {{ object.joueur.nom }}</p>
+  <p><strong>Jeu :</strong> {{ object.jeu.titre }}</p>
+  <p><strong>Date d’ajout :</strong> {{ object.date_ajout|date:"Y-m-d H:i" }}</p>
+  <p>
+    <a class="btn btn-danger" href="{% url 'gestion_listes:delete' object.pk %}">🗑️ Retirer</a>
+  </p>
+  <p><a href="{% url 'gestion_listes:list' %}">← Retour à la liste des listes</a></p>
+{% endblock %}

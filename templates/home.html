@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="hero">
+    <h2>Bienvenue dans la Ludothèque</h2>
+    <p>Gérez vos jeux, commentaires et collections en toute simplicité.</p>
+  </section>
+
+  <section class="quick-links">
+    <h3>Accès rapide</h3>
+    <ul>
+      <li><a href="{% url 'gestion_categories:list' %}">Catégories</a></li>
+      <li><a href="{% url 'gestion_auteurs:list' %}">Auteurs</a></li>
+      <li><a href="{% url 'gestion_jeux:list' %}">Jeux</a></li>
+      <li><a href="{% url 'gestion_joueurs:list' %}">Joueurs</a></li>
+      <li><a href="{% url 'gestion_commentaires:list' %}">Commentaires</a></li>
+      <li><a href="{% url 'gestion_listes:list' %}">Listes de jeux</a></li>
+    </ul>
+  </section>
+{% endblock %}

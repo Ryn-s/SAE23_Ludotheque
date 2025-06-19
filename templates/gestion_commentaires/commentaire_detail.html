@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Détail du commentaire</h2>
+  <p><strong>Jeu :</strong> {{ object.jeu.titre }}</p>
+  <p><strong>Joueur :</strong> {{ object.joueur.prenom }} {{ object.joueur.nom }}</p>
+  <p><strong>Note :</strong> {{ object.note }}/5</p>
+  <p><strong>Commentaire :</strong><br>{{ object.commentaire }}</p>
+  <p><strong>Date :</strong> {{ object.date|date:"Y-m-d H:i" }}</p>
+  <p>
+    <a class="btn" href="{% url 'gestion_commentaires:update' object.pk %}">✏️ Modifier</a>
+    <a class="btn btn-danger" href="{% url 'gestion_commentaires:delete' object.pk %}">🗑️ Supprimer</a>
+  </p>
+  <p><a href="{% url 'gestion_commentaires:list' %}">← Retour à la liste</a></p>
+{% endblock %}

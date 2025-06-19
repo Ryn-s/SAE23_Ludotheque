@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Ajouter un jeu à la liste</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">Enregistrer</button>
+    <a href="{% url 'gestion_listes:list' %}">← Annuler</a>
+  </form>
+{% endblock %}

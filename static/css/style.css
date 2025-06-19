@@ -1,0 +1,89 @@
+/* === Reset & Base === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+a { color: #0069d9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* === Layout === */
+header, footer {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+header h1 a { font-size: 1.8em; color: #333; }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+nav a {
+  color: #555;
+  padding: 8px;
+  border-radius: 4px;
+}
+nav a:hover { background: #e0e0e0; }
+
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* === Typography === */
+h2, h3, h4 { margin-bottom: 15px; color: #222; }
+p, li { margin-bottom: 10px; }
+
+/* === Buttons & Links === */
+.btn {
+  display: inline-block;
+  background: #28a745;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.btn:hover { background: #218838; }
+
+.btn-danger {
+  background: #dc3545;
+}
+.btn-danger:hover { background: #c82333; }
+
+/* === Forms === */
+form input, form select, form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+form button { border: none; }
+
+/* === Home Page === */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  margin-bottom: 30px;
+}
+.quick-links ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+.quick-links a {
+  background: #007bff;
+  color: #fff;
+  padding: 12px;
+  border-radius: 4px;
+  text-align: center;
+}
+.quick-links a:hover { background: #0069d9; }

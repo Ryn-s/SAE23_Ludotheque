@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Retirer le jeu de la liste</h2>
+  <p>Êtes-vous sûr·e de vouloir retirer « {{ object.jeu.titre }} » de la liste de {{ object.joueur.prenom }} ?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Oui, retirer</button>
+    <a href="{% url 'gestion_listes:detail' object.pk %}">Non, revenir</a>
+  </form>
+{% endblock %}

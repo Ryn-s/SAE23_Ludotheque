@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Détail de l’auteur</h2>
+  <p><strong>Nom :</strong> {{ object.prenom }} {{ object.nom }}</p>
+  <p><strong>Âge :</strong> {{ object.age }} ans</p>
+  {% if object.photo %}
+    <p><img src="{{ object.photo.url }}" alt="Photo de {{ object.prenom }}" style="max-width:200px;"></p>
+  {% endif %}
+  <p>
+    <a class="btn" href="{% url 'gestion_auteurs:update' object.pk %}">✏️ Modifier</a>
+    <a class="btn btn-danger" href="{% url 'gestion_auteurs:delete' object.pk %}">🗑️ Supprimer</a>
+  </p>
+  <p><a href="{% url 'gestion_auteurs:list' %}">← Retour à la liste</a></p>
+{% endblock %}

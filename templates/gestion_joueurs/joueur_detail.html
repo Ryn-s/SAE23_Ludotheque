@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <h2>Fiche de {{ object.prenom }} {{ object.nom }}</h2>
+
+  <div class="card">
+    <h3>📋 Ma liste de jeux</h3>
+    {% if listes %}
+      <ul>
+        {% for item in listes %}
+          <li>{{ item.jeu.titre }} (ajouté le {{ item.date_ajout|date:"SHORT_DATE_FORMAT" }})</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Vous n’avez encore aucune liste de jeux.</p>
+    {% endif %}
+
+    <h3>💬 Mes commentaires et notes</h3>
+    {% if comments %}
+      <ul>
+        {% for c in comments %}
+          <li>
+            <strong>{{ c.jeu.titre }}</strong> : {{ c.note }}/5 — 
+            "{{ c.commentaire }}" le {{ c.date|date:"SHORT_DATE_FORMAT" }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Vous n’avez fait aucun commentaire pour le moment.</p>
+    {% endif %}
+  </div>
+
+  <hr>
+
+  
+  <a class="btn btn-danger"
+     href="{% url 'gestion_joueurs:delete' object.pk %}">
+    🗑️ Supprimer ce joueur
+  </a>
+  <a class="btn btn-secondary"
+     href="{% url 'gestion_joueurs:list' %}">
+    ← Retour à la liste
+  </a>
+
+{% endblock %}

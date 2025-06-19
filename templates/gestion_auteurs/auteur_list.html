@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Auteurs</h2>
+  <p><a class="btn" href="{% url 'gestion_auteurs:create' %}">➕ Nouvel auteur</a></p>
+  <ul>
+    {% for aut in object_list %}
+      <li><a href="{% url 'gestion_auteurs:detail' aut.pk %}">
+        {{ aut.prenom }} {{ aut.nom }}
+      </a></li>
+    {% empty %}
+      <li>Aucun auteur pour l’instant.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

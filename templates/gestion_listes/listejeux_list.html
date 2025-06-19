@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Listes de jeux</h2>
+  <p><a class="btn" href="{% url 'gestion_listes:create' %}">➕ Ajouter un jeu à une liste</a></p>
+  <ul>
+    {% for item in object_list %}
+      <li>
+        <a href="{% url 'gestion_listes:detail' item.pk %}">
+          {{ item.joueur.prenom }} → {{ item.jeu.titre }}
+        </a>
+      </li>
+    {% empty %}
+      <li>Aucun élément pour l’instant.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
