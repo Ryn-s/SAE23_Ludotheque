@@ -2,10 +2,9 @@ from django.urls import path
 from . import views
 
 app_name = 'gestion_joueurs'
-<<<<<<< HEAD
 
-=======
->>>>>>> b97f7dc2420181f352d72cb567a26f2f56dbf02a
+
+
 urlpatterns = [
     path('',            views.JoueurListView.as_view(),   name='list'),
     path('new/',        views.JoueurCreateView.as_view(), name='create'),
