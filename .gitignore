@@ -1,4 +1,5 @@
-# Python cache files
+# Byte-compiled files
 __pycache__/
 *.py[cod]
+
 

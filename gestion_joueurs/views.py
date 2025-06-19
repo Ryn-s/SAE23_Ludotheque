@@ -3,7 +3,11 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.db.models import Avg
 
 from .models import Joueur
+<<<<<<< HEAD
 from gestion_listes.models import ListeJeux
+=======
+from gestion_listes.models      import ListeJeux
+>>>>>>> b97f7dc2420181f352d72cb567a26f2f56dbf02a
 from gestion_commentaires.models import Commentaire
 
 class JoueurListView(ListView):
@@ -26,7 +30,11 @@ class JoueurDetailView(DetailView):
         comments = Commentaire.objects.filter(joueur=joueur).select_related('jeu')
         context['comments'] = comments
 
+<<<<<<< HEAD
         
+=======
+       
+>>>>>>> b97f7dc2420181f352d72cb567a26f2f56dbf02a
         moy_qs = (
             Commentaire.objects
             .values('jeu')
