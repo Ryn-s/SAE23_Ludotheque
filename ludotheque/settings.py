@@ -33,10 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-<<<<<<< HEAD
     'django.contrib.humanize',
-=======
->>>>>>> b97f7dc2420181f352d72cb567a26f2f56dbf02a
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
